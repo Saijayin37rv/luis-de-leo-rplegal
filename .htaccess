@@ -1,0 +1,47 @@
+# .htaccess - Seguridad y configuración (Apache)
+# Representante Legal - Luis De Leon
+
+# Habilitar rewrite si usas URLs amigables (opcional)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+</IfModule>
+
+# ===== Cabeceras de seguridad =====
+<IfModule mod_headers.c>
+  # Evitar que la página se cargue en iframes (clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Evitar MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # XSS: modo restringido en navegadores antiguos
+  Header always set X-XSS-Protection "1; mode=block"
+  # Referrer: no enviar origen en enlaces externos (privacidad)
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Política de permisos (evitar APIs no deseadas)
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ===== Tipos MIME correctos =====
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType image/svg+xml .svg .svgz
+</IfModule>
+
+# ===== Compresión GZIP (si está disponible) =====
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
+</IfModule>
+
+# ===== Caché para estáticos (opcional) =====
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Bloquear acceso a archivos sensibles
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

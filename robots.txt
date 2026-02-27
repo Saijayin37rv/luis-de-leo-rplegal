@@ -1,0 +1,12 @@
+# robots.txt - Representante Legal - Luis De Leon
+# Permite indexación por motores de búsqueda
+
+User-agent: *
+Allow: /
+
+# Sitemap (reemplaza la URL por tu dominio real al publicar)
+Sitemap: https://tudominio.com/sitemap.xml
+
+# Opcional: bloquear carpetas que no deban indexarse (ej. admin, tmp)
+# Disallow: /admin/
+# Disallow: /tmp/

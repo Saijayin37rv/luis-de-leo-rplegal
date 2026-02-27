@@ -1,0 +1,7 @@
+# security.txt - Representante Legal - Luis De Leon
+# https://securitytxt.org/
+
+Contact: https://tudominio.com/#contacto
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: es
+Canonical: https://tudominio.com/.well-known/security.txt
