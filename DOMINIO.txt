@@ -1,0 +1,54 @@
+================================================================================
+  ANTES DE SUBIR LA PÁGINA A UN DOMINIO REAL – LUIS DE LEON | LUMEX
+================================================================================
+
+Cuando tengas tu dominio (ej: https://www.luisdeleonlumex.com), haz un
+"Buscar y reemplazar" en todo el proyecto:
+
+  Buscar:    tudominio.com
+  Reemplazar: www.tudominio-real.com   (o tu dominio sin www, según prefieras)
+
+ARCHIVOS DONDE APARECE "tudominio.com" (reemplazar en todos):
+--------------------------------------------------------------------------------
+  • index.html          – canonical, og:url, og:image, schema JSON-LD
+  • comprar-propiedad.html – canonical
+  • vender-propiedad.html  – canonical
+  • aviso-privacidad.html  – canonical
+  • sitemap.xml         – todas las <loc>
+  • robots.txt          – línea Sitemap:
+
+IMAGEN PARA REDES SOCIALES (Open Graph / Facebook / Twitter):
+--------------------------------------------------------------------------------
+  Crea o sube una imagen llamada "og-image.jpg" en la raíz del sitio.
+  Tamaño recomendado: 1200 x 630 píxeles.
+  En index.html está referenciada como: https://tudominio.com/og-image.jpg
+  (después de reemplazar el dominio, quedará con tu URL).
+
+GOOGLE SEARCH (Búsqueda de Google):
+--------------------------------------------------------------------------------
+  1. Sube todos los archivos a tu hosting (index.html, css/, js/, imágenes,
+     logo.jpg, luis.mp4, sitemap.xml, robots.txt, etc.).
+  2. Asegúrate de que la URL del sitemap sea correcta en robots.txt, ej.:
+     Sitemap: https://www.tudominio-real.com/sitemap.xml
+  3. Entra en Google Search Console (https://search.google.com/search-console)
+     → Añade la propiedad con tu dominio.
+  4. En "Sitemaps" envía la URL de tu sitemap (ej. https://www.tudominio-real.com/sitemap.xml).
+  5. Opcional: en "Inspección de URLs" pide indexar la página principal.
+
+RESUMEN DE ARCHIVOS A SUBIR AL SERVIDOR:
+--------------------------------------------------------------------------------
+  • index.html
+  • comprar-propiedad.html
+  • vender-propiedad.html
+  • aviso-privacidad.html
+  • css/style.css
+  • js/main.js
+  • logo.jpg
+  • luis.mp4
+  • og-image.jpg (crear; 1200x630 px)
+  • sitemap.xml
+  • robots.txt
+  • .htaccess (si usas Apache)
+  • security.txt (opcional)
+
+================================================================================
