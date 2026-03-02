@@ -7,9 +7,9 @@
 // Deja en blanco ("") la red que no quieras mostrar.
 var SOCIAL_LINKS = {
   whatsapp: "528281201370",           // Número con código de país, sin + (ej: 5215512345678)
-  instagram: "https://instagram.com/", // Ej: https://instagram.com/tu_usuario
-  facebook: "https://facebook.com/",   // Ej: https://facebook.com/tu_pagina
-  tiktok: "https://tiktok.com/@",      // Ej: https://tiktok.com/@tu_usuario
+  instagram: "https://www.instagram.com/invites/contact/?igsh=ef1a1y132qx8&utm_content=lrq3esr",
+  facebook: "https://www.facebook.com/share/1HdVrAKD8V/?mibextid=wwXIfr",
+  tiktok: "https://tiktok.com/@",      // Ej: https://tiktok.com/@tu_usuario (deja "" si no usas)
 };
 // ===========================================================
 
@@ -20,20 +20,31 @@ var SOCIAL_LINKS = {
   const COOKIE_CONSENT_KEY = "luisdeleon_cookie_consent";
 
   // ----- Consentimiento de cookies -----
+  function hideCookieBanner() {
+    var banner = document.getElementById("cookie-consent");
+    if (banner) {
+      banner.setAttribute("hidden", "");
+      banner.classList.add("cookie-consent--accepted");
+      banner.style.display = "none";
+    }
+  }
+
   var cookieBanner = document.getElementById("cookie-consent");
   var cookieAccept = document.getElementById("cookie-accept");
   if (cookieBanner && cookieAccept) {
     try {
       if (localStorage.getItem(COOKIE_CONSENT_KEY)) {
-        cookieBanner.hidden = true;
+        hideCookieBanner();
       }
-      cookieAccept.addEventListener("click", function () {
+      cookieAccept.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         try {
           localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
-        } catch (e) {}
-        cookieBanner.hidden = true;
+        } catch (err) {}
+        hideCookieBanner();
       });
-    } catch (e) {}
+    } catch (err) {}
   }
 
   // ----- Menú móvil -----

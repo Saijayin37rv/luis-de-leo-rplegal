@@ -1339,8 +1339,10 @@ img {
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.cookie-consent[hidden] {
+.cookie-consent[hidden],
+.cookie-consent.cookie-consent--accepted {
   display: none !important;
+  visibility: hidden !important;
 }
 
 .cookie-inner {
